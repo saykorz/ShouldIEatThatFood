@@ -45,6 +45,7 @@
     <Content Include="app\views\login-register.html">
       <SubType>Content</SubType>
     </Content>
+    <Content Include="app\views\take-pic.html" />
     <Content Include="cordova.android.js" />
     <Content Include="cordova.ios.js" />
     <Content Include="cordova.wp8.js" />

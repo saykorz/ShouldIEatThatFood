@@ -56,12 +56,32 @@ var httpRequester = (function () {
         return promise;
     }
 
-    function postNotJSON(serviceUrl, data, headers) {
+    function postImage(serviceUrl, data, headers) {
         var promise = new RSVP.Promise(function (resolve, reject) {
             jQuery.ajax({
                 url: serviceUrl,
                 dataType: "json",
                 headers: headers,
+                type: "POST",
+                contentType: "image/jpeg",
+                data: data,
+                success: function (data) {
+                    resolve(data);
+                },
+                error: function (err) {
+                    reject(err);
+                }
+            });
+        });
+        return promise;
+    }
+
+    function postUrlEncoded(serviceUrl, data) {
+        data.grant_Type = "password";
+        var promise = new RSVP.Promise(function (resolve, reject) {
+            jQuery.ajax({
+                url: serviceUrl,
+                dataType: "json",
                 type: "POST",
                 data: data,
                 success: function (data) {
@@ -79,6 +99,7 @@ var httpRequester = (function () {
         getJSON: getJSON,
         postJSON: postJSON,
         puJSON: puJSON,
-        postNotJSON: postNotJSON
+        postImage: postImage,
+        postUrlEncoded: postUrlEncoded
     }
 }());
