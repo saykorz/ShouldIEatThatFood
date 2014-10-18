@@ -32,9 +32,15 @@
     <Content Include="app\business\http-requester.js">
       <SubType>Content</SubType>
     </Content>
+    <Content Include="app\business\web-storage-objects.js" />
+    <Content Include="app\libs\camera-helper.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="app\libs\file-helper.js" />
     <Content Include="app\libs\rsvp.js">
       <SubType>Content</SubType>
     </Content>
+    <Content Include="app\view-models\history-view-model.js" />
     <Content Include="app\view-models\login-register-view-model.js">
       <SubType>Content</SubType>
     </Content>
@@ -45,11 +51,12 @@
     <Content Include="app\views\login-register.html">
       <SubType>Content</SubType>
     </Content>
-    <Content Include="app\views\take-pic.html" />
     <Content Include="cordova.android.js" />
     <Content Include="cordova.ios.js" />
     <Content Include="cordova.wp8.js" />
+    <Content Include="images\color-lens.png" />
     <Content Include="index.html" />
+    <Content Include="styles\style.css" />
     <Resource Include="App_Resources\Android\drawable-hdpi\icon.png" />
     <Resource Include="App_Resources\Android\drawable-ldpi\icon.png" />
     <Resource Include="App_Resources\Android\drawable-mdpi\icon.png" />
@@ -131,6 +138,8 @@
     <Folder Include="kendo\styles\Silver\" />
     <Folder Include="kendo\typescript\" />
     <Folder Include="app\" />
+    <Folder Include="images\" />
+    <Folder Include="styles\" />
     <Folder Include="Plugins\" />
   </ItemGroup>
   <Import Project="$(IceniumTargets)Build.targets" />

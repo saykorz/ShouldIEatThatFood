@@ -1,8 +1,18 @@
 /// <reference path="business/http-requester.js" />
+/// <reference path="business/web-storage-objects.js" />
 
 (function (global) {
-    var app;
+    window.accessTokenKey = "ShouldIEatThatFoodToken";
+    window.pendingTags = "ShouldIEatThatFoodPendingTags";
+    window.pendingTagsMaxCount = 10;
+    window.submitStatus = {};
+    window.submitStatus.error = "error";
+    window.submitStatus.succses = "succses";
+    window.cameraApp = new cameraApp();
+        
 
+    var app;
+    
     var app = global.app = global.app || {};;
 
     document.addEventListener('deviceready', function () {
@@ -16,80 +26,64 @@
 
     }, false);
 
-
-   
-    function getInitialView() {
+  function getInitialView() {
         //ToDo make it constant
-        var accessToken = localStorage.getItem("accessToken");
-        var view;
-
-        if (accessToken) {
-            view = 'app/views/home.html';
-        }
-        else {
-            view = 'app/views/login-register.html'
-            //$("#drawer-button").hide();
-        }
-
-        return view;
-    }
-
-    function getInitialView() {
-        //ToDo make it constant
-        var accessToken = localStorage.getItem("accessToken");
+       
+        var accessToken = localStorage.getItem(window.accessTokenKey);
         var view;
       
         if (accessToken) {
             view = 'app/views/home.html';
-            navigator.camera.getPicture(cameraSuccess, cameraError);
-        }
-        else {
-            view = 'app/views/login-register.html'
-            $("#drawer-button").hide();
-           // navigator.camera.getPicture(cameraSuccess, cameraError);
-        }
-
-        return view;
-    }
-
-
-
-
-    function cameraSuccess(imageData) {
-        var user = {
-            username: "admin@example.bg",
-            password: "admin123#"
-        };
-
-        function gotPhoto(imageUri) {
-            window.resolveLocalFileSystemURL(imageUri,
-                function (fileEntry) {
-                fileEntry.file(function (fileObj) {
-                    httpRequester.postUrlEncoded("http://localhost:1297/token", user)
-                    .then(function (token) {
-                        httpRequester.postImage("http://localhost:1297/api/Analize/Upload", "data:image/jpeg;base64," + fileObj, { Authorization: token.access_token })
-                            .then(function (data) {
-                                var some = data;
-
-                            });
-                    });
-                });
-                }, cameraError);
            
+          
+        }
+        else {
+            view = 'app/views/login-register.html';
+            $("#drawer-button").hide();
+          
         }
 
-        var some = gotPhoto(imageData);
-
-      
-        
+        return view;
     }
 
-    function cameraError() {
-        
+  global.app.onDeviceReady = function () {
+
+      window.cameraApp.run();
+      window.cameraApp.capturePhoto().then(function (fileObj) {
+
+            var accessToken = localStorage.getItem(window.accessTokenKey);
+
+            httpRequester.postImage("http://api.dev.shouldieatthatfood.com/api/Analize/Upload", fileObj,
+                { Authorization: "Bearer " + accessToken })
+                .then(function (data) {
+                    // sucsess 
+                    alert("result", data);
+                    saveUploadImage(fileObj, window.submitStatus.succses);
+
+                }, function (error) {
+
+                    alert("Uplouding is not successful, image will be saved in history for later.");
+                    saveUploadImage(fileObj, window.submitStatus.error);
+                   
+                });
+
+        });
+
+    }
+   // document.addEventListener("deviceready", onDeviceReady, false);
+    
+    function saveUploadImage(imageString, status) {
+        var savedImages = localStorage.getObject(window.pendingTags);
+        savedImages.unshift(fileObj);
+        if (savedImages.lenght > window.pendingTagsMaxCount) {
+            savedImages.pop();
+        }
+        localStorage.setObject(window.pendingTags, { image: fileObj , status: status});
     }
 
   
 }(window));
+
 
 
 

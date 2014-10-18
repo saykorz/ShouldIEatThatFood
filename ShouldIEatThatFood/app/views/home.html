@@ -1,5 +1,64 @@
-<div data-role="view" data-title="Home" data-layout="main" data-model="APP.models.home">
-    <div data-bind="text: title"> 
+<div data-role="view" data-title="Home" data-layout="main" id="take-pick-container">
+    <div class="camera-container">
 
+        <a data-icon="info" id="btn-take-pic">
+            <!--<img src="images/color-lens.png" id="camera-img" />-->
+        </a>
     </div>
+    <div id="appendto" class="k-block"></div>
+    <span id="notification" style="display:none;"></span>
+
+    
+
+    <script>
+        $("#btn-take-pic").click(function () {
+            app.onDeviceReady();
+        })
+
+        var notification = $("#notification").kendoNotification({
+            autoHideAfter: 0,
+            templates: [ {
+                type: "error",
+                template: $("#badTemplate").html()
+            }, {
+                type: "warning",
+                template: $("#warningTemplate").html()
+            }, {
+                type: "success",
+                template: $("#goodTemplate").html()
+            }],
+            appendTo: "#appendto"
+
+        }).data("kendoNotification");
+
+        notification.show({
+            title: "Wrong Password",
+            message: "Please enter your password again."
+        }, "error");
+        notification.show({
+            title: "Wrong Password",
+            message: "Please enter your password again."
+        }, "warning");
+        notification.show({
+            title: "Wrong Password",
+            message: "Please enter your password again."
+        }, "success");
+
+    </script>
+
+    <script id="badTemplate" type="text/x-kendo-template">
+        <div>
+            <p>0  bad ingredients</p>
+        </div>
+    </script>
+    <script id="goodTemplate" type="text/x-kendo-template">
+        <div >
+            <p>0  goos ingredients</p>
+        </div>
+    </script>
+    <script id="warningTemplate" type="text/x-kendo-template">
+        <div>
+            <p>0  warning ingredients</p>
+        </div>
+    </script>
 </div>

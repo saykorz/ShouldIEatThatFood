@@ -63,8 +63,11 @@ var httpRequester = (function () {
                 dataType: "json",
                 headers: headers,
                 type: "POST",
-                contentType: "image/jpeg",
+                contentType: false,
+
                 data: data,
+                cache: false,
+                processData: false,
                 success: function (data) {
                     resolve(data);
                 },
@@ -75,6 +78,8 @@ var httpRequester = (function () {
         });
         return promise;
     }
+
+
 
     function postUrlEncoded(serviceUrl, data) {
         var promise = new RSVP.Promise(function (resolve, reject) {
