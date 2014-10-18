@@ -17,23 +17,6 @@
     }, false);
 
 
-   
-    function getInitialView() {
-        //ToDo make it constant
-        var accessToken = localStorage.getItem("accessToken");
-        var view;
-
-        if (accessToken) {
-            view = 'app/views/home.html';
-        }
-        else {
-            view = 'app/views/login-register.html'
-            //$("#drawer-button").hide();
-        }
-
-        return view;
-    }
-
     function getInitialView() {
         //ToDo make it constant
         var accessToken = localStorage.getItem("accessToken");
@@ -41,7 +24,7 @@
       
         if (accessToken) {
             view = 'app/views/home.html';
-            navigator.camera.getPicture(cameraSuccess, cameraError);
+            //navigator.camera.getPicture(cameraSuccess, cameraError);
         }
         else {
             view = 'app/views/login-register.html'
@@ -53,26 +36,46 @@
     }
 
 
+   // document.addEventListener("deviceready", onDeviceReady, false);
 
-
-    function cameraSuccess(imageData) {
+   
+    function onDeviceReady() {
         var user = {
             username: "admin@example.bg",
             password: "admin123#"
         };
+        cameraApp = new cameraApp();
+        cameraApp.run();
+        cameraApp.capturePhoto().then(function (fileObj) {
+
+           
+
+            httpRequester.postUrlEncoded("http://api.dev.shouldieatthatfood.com/token", user)
+            .then(function (token) {
+                httpRequester.postImage("http://api.dev.shouldieatthatfood.com/api/Analize/Upload", fileObj, { Authorization: "Bearer " + token.access_token })
+                .then(function (data) {
+                         var some = data;
+
+                 });
+
+                });
+        }, function error(e) {
+
+        });
+       
+    }
+
+
+
+
+    function cameraSuccess(imageData) {
+      
 
         function gotPhoto(imageUri) {
-            window.resolveLocalFileSystemURL(imageUri,
+            window.resolveLocalFileSystemURI(imageUri,
                 function (fileEntry) {
                 fileEntry.file(function (fileObj) {
-                    httpRequester.postUrlEncoded("http://localhost:1297/token", user)
-                    .then(function (token) {
-                        httpRequester.postImage("http://localhost:1297/api/Analize/Upload", "data:image/jpeg;base64," + fileObj, { Authorization: token.access_token })
-                            .then(function (data) {
-                                var some = data;
-
-                            });
-                    });
+                    
                 });
                 }, cameraError);
            
@@ -84,7 +87,7 @@
         
     }
 
-    function cameraError() {
+    function cameraError(error) {
         
     }
 

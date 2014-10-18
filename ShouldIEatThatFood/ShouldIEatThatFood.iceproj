@@ -32,6 +32,7 @@
     <Content Include="app\business\http-requester.js">
       <SubType>Content</SubType>
     </Content>
+    <Content Include="app\libs\camera-helper.js" />
     <Content Include="app\libs\rsvp.js">
       <SubType>Content</SubType>
     </Content>
