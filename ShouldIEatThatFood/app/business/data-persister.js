@@ -1,0 +1,3 @@
+window.persisters = (function () {
+
+}());

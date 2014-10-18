@@ -1,0 +1,56 @@
+<div data-role="view" data-title="Login" data-layout="main">
+
+    <ul id="panelbar">
+        <li class="k-state-active">
+            <span class="k-link k-state-selected">Login</span>
+            <div id="login-panel">
+                <br />
+                <label for="tb-email">Email</label>
+                <input type="email" id="tb-email" class="k-textbox" 
+                       placeholder="myname@example.net"/>
+                <!--required data-email-msg="Email format is not valid"-->
+                <br />
+                <br />
+                <label for="tb-pass">Pass&nbsp;</label>
+                <input type="text" id="tb-pass" class="k-textbox"/>
+                <br />
+                <br />
+                <button data-role="button" id="btn-login">Login</button>
+
+                <div id="errors"></div>
+                <br />
+            </div>
+        </li>
+        <li>
+            Register
+            <div>
+                <br />
+                <label for="tb-email-register">Email</label>
+                <input type="text" id="tb-email-register" class="k-textbox" />
+                <br />
+                <br />
+                <button data-role="button">Register</button>
+            </div>
+        </li>
+    </ul>
+    <script>
+        $(document).ready(function () {
+            $("#panelbar").kendoPanelBar({
+                expandMode: "single"
+            });
+        });
+
+        var validator = $("#login-panel").kendoValidator().data("kendoValidator");
+
+        $("#btn-login").click(function () {
+            //if (!validator.validateInput($("#tb-email"))) {
+            //    console.log("UserName is not valid!");
+            //} else {
+            //    console.log("UserName is valid!");
+            //}
+        });
+    </script>
+
+
+
+</div>
