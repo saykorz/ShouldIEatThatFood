@@ -11,11 +11,14 @@
             }).data("kendoValidator");
 
             if (loginValidator.validate()) {
+
+                global.app.application.showLoading();
                 
                 var username = that.get("loginEmail"),
                 password = that.get("loginPass")
                 persiter.users.login(username, password)
                     .then(login, function (serverError) {
+                        kendo.mobile.application.hideLoading();
                         var errorResponse = JSON.parse(serverError.responseText);
                         that.set("error", errorResponse.error_description);
                     });
@@ -32,9 +35,12 @@
 
             if (registerValidator.validate()) {
 
+                global.app.application.showLoading();
+
                 var email = that.get("regMail");
                 persiter.users.register(email)
                         .then(login, function (serverError) {
+                            kendo.mobile.application.hideLoading();
                             var errorResponse = JSON.parse(serverError.responseText);
                             that.set("error", errorResponse.error_description);
                         });
@@ -50,8 +56,10 @@
     }
 
     function login(data) {
+        kendo.mobile.application.hideLoading();
+
         localStorage.setItem(window.accessTokenKey, data.access_token);
-        global.app.application.navigate("app/views/history.html");
+        global.app.application.navigate("app/views/home.html");
         $("#drawer-button").show();
     }
 

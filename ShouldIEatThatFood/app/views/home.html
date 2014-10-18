@@ -1,5 +1,12 @@
 <div data-role="view" data-title="Home" data-layout="main">
-    <div data-bind="text: title">
+    <div class="camera-container">
+        <img src="images/color-lens.png" id="camera-img" />
 
+        <a data-role="button" id="btn-take-pic">Take photo</a>
     </div>
 </div>
+<script>
+    $("#btn-take-pic").click(function () {
+        onDeviceReady();
+    })
+</script>

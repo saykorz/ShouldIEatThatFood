@@ -17,7 +17,7 @@
                     <span class="k-invalid-msg" data-for="pass"></span>
                     <br />
                     <br />
-                    <button data-role="button" id="btn-login" data-bind="click: login">Login</button>
+                    <a data-role="button" id="btn-login" data-bind="click: login">Login</a>
 
                 </div>
             </li>
@@ -32,11 +32,12 @@
                         <br />
                         <br />
                         <button data-role="button" data-bind="click: register">Register</button>
+                        <div>You will receive your password on the email</div>
                     </div>
                 </div>
             </li>
         </ul>
-        <div data-bind="text:error"></div>
+        <div data-bind="text:error" class="error"></div>
     </div>
     <script>
         $(document).ready(function () {

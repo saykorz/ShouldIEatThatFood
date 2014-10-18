@@ -1,0 +1,14 @@
+body {
+}
+
+.error {
+    color: red;
+}
+
+#camera-img {
+}
+
+.camera-container {
+    text-align: center;
+    padding-top: 10%;
+}

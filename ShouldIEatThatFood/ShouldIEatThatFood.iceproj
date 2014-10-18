@@ -32,7 +32,6 @@
     <Content Include="app\business\http-requester.js">
       <SubType>Content</SubType>
     </Content>
-    <Content Include="app\libs\camera-helper.js" />
     <Content Include="app\libs\rsvp.js">
       <SubType>Content</SubType>
     </Content>
@@ -50,6 +49,7 @@
     <Content Include="cordova.android.js" />
     <Content Include="cordova.ios.js" />
     <Content Include="cordova.wp8.js" />
+    <Content Include="images\color-lens.png" />
     <Content Include="index.html" />
     <Content Include="styles\style.css" />
     <Resource Include="App_Resources\Android\drawable-hdpi\icon.png" />
@@ -133,6 +133,7 @@
     <Folder Include="kendo\styles\Silver\" />
     <Folder Include="kendo\typescript\" />
     <Folder Include="app\" />
+    <Folder Include="images\" />
     <Folder Include="styles\" />
     <Folder Include="Plugins\" />
   </ItemGroup>

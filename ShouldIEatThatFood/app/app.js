@@ -42,31 +42,7 @@
    // document.addEventListener("deviceready", onDeviceReady, false);
 
 
-    function onDeviceReady() {
-        var user = {
-            username: "admin@example.bg",
-            password: "admin123#"
-        };
-        cameraApp = new cameraApp();
-        cameraApp.run();
-        cameraApp.capturePhoto().then(function (fileObj) {
-
-           
-
-            httpRequester.postUrlEncoded("http://api.dev.shouldieatthatfood.com/token", user)
-            .then(function (token) {
-                httpRequester.postImage("http://api.dev.shouldieatthatfood.com/api/Analize/Upload", fileObj, { Authorization: "Bearer " + token.access_token })
-                .then(function (data) {
-                         var some = data;
-
-                 });
-
-                });
-        }, function error(e) {
-
-        });
-       
-    }
+   
 
 
 
@@ -80,5 +56,23 @@
   
 }(window));
 
+function onDeviceReady() {
+
+    cameraApp = new cameraApp();
+    cameraApp.run();
+    cameraApp.capturePhoto().then(function (fileObj) {
+
+        var accessToken = localStorage.getItem(window.accessTokenKey);
+
+        httpRequester.postImage("http://api.dev.shouldieatthatfood.com/api/Analize/Upload", fileObj,
+            { Authorization: "Bearer " + accessToken })
+            .then(function (data) {
+                var some = data;
+
+            });
+
+    });
+
+}
 
 
