@@ -9,7 +9,7 @@
             var that = this;
             
                 var username = that.get("loginEmail"),
-                password = that.get("password")
+                password = that.get("loginPass")
             
                 persiter.users.login(username, password);
         },

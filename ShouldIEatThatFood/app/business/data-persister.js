@@ -19,7 +19,7 @@ window.persisters = (function () {
                 password: password
             };
 
-            return httpRequester.postNotJSON(this.url + "token", user);
+            return httpRequester.postUrlEncoded(this.url + "token", user);
         },
 
         register: function (email,password) {
