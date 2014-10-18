@@ -23,7 +23,7 @@ cameraApp.prototype = {
                 reject(error);
             }, {
                 quality: 50,
-                destinationType: that._destinationType.DATA_URL
+                destinationType: Camera.DestinationType.DATA_URL
             });
         });
         return promise;
