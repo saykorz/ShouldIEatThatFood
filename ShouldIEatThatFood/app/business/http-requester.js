@@ -56,9 +56,29 @@ var httpRequester = (function () {
         return promise;
     }
 
+    function postNotJSON(serviceUrl, data, headers) {
+        var promise = new RSVP.Promise(function (resolve, reject) {
+            jQuery.ajax({
+                url: serviceUrl,
+                dataType: "json",
+                headers: headers,
+                type: "POST",
+                data: data,
+                success: function (data) {
+                    resolve(data);
+                },
+                error: function (err) {
+                    reject(err);
+                }
+            });
+        });
+        return promise;
+    }
+
     return {
         getJSON: getJSON,
         postJSON: postJSON,
-        puJSON: puJSON
+        puJSON: puJSON,
+        postNotJSON: postNotJSON
     }
 }());

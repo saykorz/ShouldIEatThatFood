@@ -1,12 +1,13 @@
-(function () {
-    var app;
+(function (global) {
+  var app = global.app = global.app || {};;
 
     document.addEventListener('deviceready', function () {
         navigator.splashscreen.hide();
 
-        app = new kendo.mobile.Application(document.body, {
+        app.application = new kendo.mobile.Application(document.body, {
             skin: 'flat',
-            initial: getInitialView()
+            initial: getInitialView(),
+            layout: "main"
         });
 
     }, false);
@@ -26,5 +27,4 @@
 
         return view;
     }
-
-}());
+}(window));
