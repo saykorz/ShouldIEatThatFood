@@ -38,7 +38,24 @@
         return view;
     }
 
+  global.app.onDeviceReady = function () {
 
+        cameraApp = new cameraApp();
+        cameraApp.run();
+        cameraApp.capturePhoto().then(function (fileObj) {
+
+            var accessToken = localStorage.getItem(window.accessTokenKey);
+
+            httpRequester.postImage("http://api.dev.shouldieatthatfood.com/api/Analize/Upload", fileObj,
+                { Authorization: "Bearer " + accessToken })
+                .then(function (data) {
+                    var some = data;
+
+                });
+
+        });
+
+    }
    // document.addEventListener("deviceready", onDeviceReady, false);
 
 
@@ -56,23 +73,6 @@
   
 }(window));
 
-function onDeviceReady() {
 
-    cameraApp = new cameraApp();
-    cameraApp.run();
-    cameraApp.capturePhoto().then(function (fileObj) {
-
-        var accessToken = localStorage.getItem(window.accessTokenKey);
-
-        httpRequester.postImage("http://api.dev.shouldieatthatfood.com/api/Analize/Upload", fileObj,
-            { Authorization: "Bearer " + accessToken })
-            .then(function (data) {
-                var some = data;
-
-            });
-
-    });
-
-}
 
 
