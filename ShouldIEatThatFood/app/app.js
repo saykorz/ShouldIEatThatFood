@@ -1,8 +1,10 @@
 /// <reference path="business/http-requester.js" />
 
 (function (global) {
-    var app;
+    window.accessTokenKey = "ShouldIEatThatFoodToken";
 
+    var app;
+    
     var app = global.app = global.app || {};;
 
     document.addEventListener('deviceready', function () {
@@ -16,35 +18,17 @@
 
     }, false);
 
-
-   
     function getInitialView() {
         //ToDo make it constant
-        var accessToken = localStorage.getItem("accessToken");
-        var view;
-
-        if (accessToken) {
-            view = 'app/views/home.html';
-        }
-        else {
-            view = 'app/views/login-register.html'
-            //$("#drawer-button").hide();
-        }
-
-        return view;
-    }
-
-    function getInitialView() {
-        //ToDo make it constant
-        var accessToken = localStorage.getItem("accessToken");
+        var accessToken = localStorage.getItem(window.accessTokenKey);
         var view;
       
         if (accessToken) {
             view = 'app/views/home.html';
-            navigator.camera.getPicture(cameraSuccess, cameraError);
+            //navigator.camera.getPicture(cameraSuccess, cameraError);
         }
         else {
-            view = 'app/views/login-register.html'
+            view = 'app/views/login-register.html';
             $("#drawer-button").hide();
            // navigator.camera.getPicture(cameraSuccess, cameraError);
         }

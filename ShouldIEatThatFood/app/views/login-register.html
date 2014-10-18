@@ -7,32 +7,36 @@
                     <br />
                     <label for="tb-email" data-bind="value: loginMail">Email</label>
                     <input type="email" id="tb-email" class="k-textbox"
-                            data-bind="value:loginEmail" />
-                    <!--required data-email-msg="Email format is not valid"-->
+                           data-bind="value:loginEmail" data-id="tb-email" name="email" required />
+                    <span class="k-invalid-msg" data-for="email"></span>
                     <br />
                     <br />
                     <label for="tb-pass">Pass&nbsp;</label>
-                    <input type="text" id="tb-pass" class="k-textbox" data-bind="value:loginPass" />
+                    <input type="text" id="tb-pass" class="k-textbox" data-bind="value:loginPass" data-id="tb-pass" name="tb-pass"
+                           required />
+                    <span class="k-invalid-msg" data-for="pass"></span>
                     <br />
                     <br />
                     <button data-role="button" id="btn-login" data-bind="click: login">Login</button>
 
-                    <div id="errors"></div>
-                    <br />
                 </div>
             </li>
             <li>
                 Register
                 <div>
-                    <br />
-                    <label for="tb-email-register">Email</label>
-                    <input type="text" id="tb-email-register" class="k-textbox" />
-                    <br />
-                    <br />
-                    <button data-role="button">Register</button>
+                    <div id="register-panel">
+                        <br />
+                        <label for="tb-email-register">Email</label>
+                        <input type="email" id="tb-email-register" class="k-textbox" data-bind="value: regMail" name="e-mail" required />
+                        <span class="k-invalid-msg" data-for="e-mail"></span>
+                        <br />
+                        <br />
+                        <button data-role="button" data-bind="click: register">Register</button>
+                    </div>
                 </div>
             </li>
         </ul>
+        <div data-bind="text:error"></div>
     </div>
     <script>
         $(document).ready(function () {
@@ -40,18 +44,5 @@
                 expandMode: "single"
             });
         });
-
-        var validator = $("#login-panel").kendoValidator().data("kendoValidator");
-
-        $("#btn-login").click(function () {
-            //if (!validator.validateInput($("#tb-email"))) {
-            //    console.log("UserName is not valid!");
-            //} else {
-            //    console.log("UserName is valid!");
-            //}
-        });
     </script>
-
-
-
 </div>

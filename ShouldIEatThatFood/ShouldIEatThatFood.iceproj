@@ -50,6 +50,7 @@
     <Content Include="cordova.ios.js" />
     <Content Include="cordova.wp8.js" />
     <Content Include="index.html" />
+    <Content Include="styles\style.css" />
     <Resource Include="App_Resources\Android\drawable-hdpi\icon.png" />
     <Resource Include="App_Resources\Android\drawable-ldpi\icon.png" />
     <Resource Include="App_Resources\Android\drawable-mdpi\icon.png" />
@@ -131,6 +132,7 @@
     <Folder Include="kendo\styles\Silver\" />
     <Folder Include="kendo\typescript\" />
     <Folder Include="app\" />
+    <Folder Include="styles\" />
     <Folder Include="Plugins\" />
   </ItemGroup>
   <Import Project="$(IceniumTargets)Build.targets" />
