@@ -2,7 +2,7 @@ window.persisters = (function () {
 
     var DataPersister = Class.create({
         init: function () {
-            this.apiUrl = "http://localhost:1297/";
+            this.apiUrl = "http://api.dev.shouldieatthatfood.com/";
             this.users = new UserPersister(this.apiUrl);
         }
     });
@@ -19,16 +19,14 @@ window.persisters = (function () {
                 password: password
             };
 
-            return httpRequester.postNotJSON(this.url + "token", user);
+            return httpRequester.postUrlEncoded(this.url + "token", user);
         },
 
-        register: function (email,password) {
-            var user = {
-                username: email,
-                authCode: password
-            }
-
-            return httpRequester.postJSON(this.url + "api/register", user);
+        register: function (email) {
+            var model = {
+                Email: email
+            };
+            return httpRequester.postJSON(this.url + "api/account/register", model);
         }
     })
 

@@ -82,7 +82,6 @@ var httpRequester = (function () {
 
 
     function postUrlEncoded(serviceUrl, data) {
-        data.grant_Type = "password";
         var promise = new RSVP.Promise(function (resolve, reject) {
             jQuery.ajax({
                 url: serviceUrl,

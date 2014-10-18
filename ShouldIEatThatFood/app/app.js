@@ -1,8 +1,10 @@
 /// <reference path="business/http-requester.js" />
 
 (function (global) {
-    var app;
+    window.accessTokenKey = "ShouldIEatThatFoodToken";
 
+    var app;
+    
     var app = global.app = global.app || {};;
 
     document.addEventListener('deviceready', function () {
@@ -16,20 +18,21 @@
 
     }, false);
 
-
-    function getInitialView() {
+  function getInitialView() {
         //ToDo make it constant
-        var accessToken = localStorage.getItem("accessToken");
+       
+        var accessToken = localStorage.getItem(window.accessTokenKey);
         var view;
       
         if (accessToken) {
             view = 'app/views/home.html';
-            //navigator.camera.getPicture(cameraSuccess, cameraError);
+           
+          
         }
         else {
-            view = 'app/views/login-register.html'
+            view = 'app/views/login-register.html';
             $("#drawer-button").hide();
-           // navigator.camera.getPicture(cameraSuccess, cameraError);
+          
         }
 
         return view;
@@ -38,7 +41,7 @@
 
    // document.addEventListener("deviceready", onDeviceReady, false);
 
-   
+
     function onDeviceReady() {
         var user = {
             username: "admin@example.bg",
@@ -68,25 +71,8 @@
 
 
 
-    function cameraSuccess(imageData) {
-      
-
-        function gotPhoto(imageUri) {
-            window.resolveLocalFileSystemURI(imageUri,
-                function (fileEntry) {
-                fileEntry.file(function (fileObj) {
-                    
-                });
-                }, cameraError);
-           
-        }
-
-        var some = gotPhoto(imageData);
-
-      
-        
-    }
-
+   
+    
     function cameraError(error) {
         
     }
