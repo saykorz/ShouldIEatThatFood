@@ -23,6 +23,21 @@
   <ItemGroup>
     <Content Include=".abproject" />
     <Content Include="app\app.js" />
+    <Content Include="app\business\class.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="app\business\data-persister.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="app\business\http-requester.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="app\libs\rsvp.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="app\view-models\login-register-view-model.js">
+      <SubType>Content</SubType>
+    </Content>
     <Content Include="app\views\history.html" />
     <Content Include="app\views\home.html">
       <SubType>Content</SubType>
@@ -30,6 +45,7 @@
     <Content Include="app\views\login-register.html">
       <SubType>Content</SubType>
     </Content>
+    <Content Include="app\views\take-pic.html" />
     <Content Include="cordova.android.js" />
     <Content Include="cordova.ios.js" />
     <Content Include="cordova.wp8.js" />
@@ -67,6 +83,9 @@
     <Content Include="kendo\js\kendo.core.min.js" />
     <Content Include="kendo\js\kendo.mobile.min.js" />
     <Content Include="kendo\js\kendo.panelbar.min.js" />
+    <Content Include="kendo\js\kendo.validator.min.js">
+      <SubType>Content</SubType>
+    </Content>
     <Content Include="kendo\styles\kendo.silver.min.css" />
     <Content Include="kendo\styles\kendo.common.min.css" />
     <Content Include="kendo\styles\kendo.mobile.all.min.css" />
@@ -92,6 +111,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="app\business\" />
+    <Folder Include="app\libs\" />
     <Folder Include="app\views\" />
     <Folder Include="app\view-models\" />
     <Folder Include="App_Resources\" />
