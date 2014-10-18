@@ -21,3 +21,7 @@ body {
     margin: 1em 0;
     overflow: auto;
 }
+
+.k-textbox {
+  width: 80%
+}
