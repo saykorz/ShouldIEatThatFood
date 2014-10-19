@@ -18,6 +18,7 @@
     <script src="kendo/js/kendo.mobile.min.js"></script>
     <script src="kendo/js/kendo.panelbar.min.js"></script>
     <script src="kendo/js/kendo.validator.min.js"></script>
+    <script src="kendo/js/kendo.notification.min.js"></script>
 
     <!--libreries-->
     <script src="app/business/class.js"></script>
@@ -32,6 +33,7 @@
     <script src="app/app.js"></script>
 
     <script src="app/view-models/login-register-view-model.js"></script>
+    <script src="app/view-models/home-view-model.js"></script>
     <script src="app/view-models/history-view-model.js"></script>
 </head>
 <body>
@@ -44,8 +46,6 @@
         </div>
 
         <!-- application views will be rendered here -->
-
-
     </div>
 
 
@@ -53,7 +53,7 @@
     <div data-role="drawer" id="appDrawer" style="width: 270px" data-title="Navigation">
         <div data-role="header">
             <div data-role="navbar">
-                <span data-role="view-title"></span>
+                <span data-role="view-title" id="view-title"></span>
             </div>
         </div>
         <ul data-role="listview">
@@ -62,9 +62,6 @@
             </li>
             <li>
                 <a href="app/views/history.html">History</a>
-            </li>
-            <li>
-                <a href="app/views/login-register.html">Login/Register</a>
             </li>
         </ul>
     </div>       
@@ -85,6 +82,14 @@
         }
     }
     </script>-->
+
+    <script>
+        
+        $("body").on("click", "#appDrawer", function () {
+            $("#drawer-button").hide();
+            $("#appDrawer").hide();
+        })
+    </script>
 
 </body>
 </html>

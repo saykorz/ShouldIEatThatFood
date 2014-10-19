@@ -34,55 +34,16 @@
       
         if (accessToken) {
             view = 'app/views/home.html';
-           
-          
         }
         else {
             view = 'app/views/login-register.html';
-            $("#drawer-button").hide();
-          
+            $("#drawer-button").css("visibility", "hidden");
+            $("#appDrawer").css("visibility", "hidden");
+            $("#view-title").css("visibility", "hidden");
+
         }
 
         return view;
-    }
-
-  global.app.onDeviceReady = function () {
-
-      window.cameraApp.run();
-      window.cameraApp.capturePhoto().then(function (fileObj) {
-
-            var accessToken = localStorage.getItem(window.accessTokenKey);
-
-            httpRequester.postImage("http://api.dev.shouldieatthatfood.com/api/Analize/Upload", fileObj,
-                { Authorization: "Bearer " + accessToken })
-                .then(function (data) {
-                    // sucsess 
-                    alert("result", data);
-                    saveUploadImage(fileObj, window.submitStatus.succses);
-
-                }, function (error) {
-
-                    alert("Uplouding is not successful, image will be saved in history for later.");
-                    saveUploadImage(fileObj, window.submitStatus.error);
-                   
-                });
-
-        });
-
-    }
-   // document.addEventListener("deviceready", onDeviceReady, false);
-    
-  function saveUploadImage(imageString, status) {
-      
-      var savedImages = localStorage.getObject(window.pendingTags);
-      if (!savedImages) {
-          savedImages = [];
-      }
-      savedImages.unshift({ image: imageString, status: status });
-        if (savedImages.lenght > window.pendingTagsMaxCount) {
-            savedImages.pop();
-        }
-        localStorage.setObject(window.pendingTags, savedImages);
     }
 
   

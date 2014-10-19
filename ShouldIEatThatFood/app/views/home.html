@@ -1,12 +1,32 @@
-<div data-role="view" data-title="Home" data-layout="main">
+<div data-role="view" data-title="Home" data-layout="main" id="take-pick-container" data-model="app.homeModel">
     <div class="camera-container">
-        <img src="images/color-lens.png" id="camera-img" />
 
-        <a data-role="button" id="btn-take-pic">Take photo</a>
+
     </div>
-    <script>
-    $("#btn-take-pic").click(function () {
-        app.onDeviceReady();
-    })
+    <div id="appendto" class="k-block"></div>
+    <span id="notification" style="display:none;"></span>
+
+    <button id="btn-take-pic" data-bind="click:takePhoto" class="k-button">
+        Take Picture
+    </button>
+
+    <div data-bind="visible:isImageVisible">
+        <img data-bind="attr: {src: imageSrc}" id="img-result">
+    </div>
+
+    <script id="badTemplate" type="text/x-kendo-template">
+        <div>
+            <p>#= count #  bad ingredients</p>
+        </div>
+    </script>
+    <script id="goodTemplate" type="text/x-kendo-template">
+        <div>
+            <p>#= count #  goos ingredients</p>
+        </div>
+    </script>
+    <script id="warningTemplate" type="text/x-kendo-template">
+        <div>
+            <p>#= count #  warning ingredients</p>
+        </div>
     </script>
 </div>

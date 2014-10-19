@@ -1,7 +1,6 @@
 /// <reference path="../business/web-storage-objects.js" />
 
 (function (global) {
-    debugger;
     var persiter = window.persisters.get();
     var savedData = localStorage.getObject(window.pendingTags);
     for (var i = 0; i < savedData.length; i++) {
