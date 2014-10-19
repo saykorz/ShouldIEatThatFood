@@ -72,13 +72,17 @@
     }
    // document.addEventListener("deviceready", onDeviceReady, false);
     
-    function saveUploadImage(imageString, status) {
-        var savedImages = localStorage.getObject(window.pendingTags);
-        savedImages.unshift(fileObj);
+  function saveUploadImage(imageString, status) {
+      
+      var savedImages = localStorage.getObject(window.pendingTags);
+      if (!savedImages) {
+          savedImages = [];
+      }
+      savedImages.unshift({ image: imageString, status: status });
         if (savedImages.lenght > window.pendingTagsMaxCount) {
             savedImages.pop();
         }
-        localStorage.setObject(window.pendingTags, { image: fileObj , status: status});
+        localStorage.setObject(window.pendingTags, savedImages);
     }
 
   
