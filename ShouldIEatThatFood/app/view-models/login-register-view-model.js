@@ -60,7 +60,9 @@
 
         localStorage.setItem(window.accessTokenKey, data.access_token);
         global.app.application.navigate("app/views/home.html");
-        $("#drawer-button").show();
+        $("#drawer-button").css("visibility", "visible");
+        $("#appDrawer").css("visibility", "visible");
+        $("#view-title").css("visibility", "visible");
     }
 
     app.loginModel = viewModel;

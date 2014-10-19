@@ -32,15 +32,16 @@
     <Content Include="app\business\http-requester.js">
       <SubType>Content</SubType>
     </Content>
-    <Content Include="app\business\web-storage-objects.js" />
     <Content Include="app\libs\camera-helper.js">
       <SubType>Content</SubType>
     </Content>
-    <Content Include="app\libs\file-helper.js" />
     <Content Include="app\libs\rsvp.js">
       <SubType>Content</SubType>
     </Content>
-    <Content Include="app\view-models\history-view-model.js" />
+    <Content Include="app\view-models\history-view-model.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="app\view-models\home-view-model.js" />
     <Content Include="app\view-models\login-register-view-model.js">
       <SubType>Content</SubType>
     </Content>
@@ -56,6 +57,7 @@
     <Content Include="cordova.wp8.js" />
     <Content Include="images\color-lens.png" />
     <Content Include="index.html" />
+    <Content Include="kendo\js\kendo.notification.min.js" />
     <Content Include="styles\style.css" />
     <Resource Include="App_Resources\Android\drawable-hdpi\icon.png" />
     <Resource Include="App_Resources\Android\drawable-ldpi\icon.png" />

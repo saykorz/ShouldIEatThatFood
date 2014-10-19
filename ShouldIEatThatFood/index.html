@@ -53,7 +53,7 @@
     <div data-role="drawer" id="appDrawer" style="width: 270px" data-title="Navigation">
         <div data-role="header">
             <div data-role="navbar">
-                <span data-role="view-title"></span>
+                <span data-role="view-title" id="view-title"></span>
             </div>
         </div>
         <ul data-role="listview">
@@ -85,6 +85,14 @@
         }
     }
     </script>-->
+
+    <script>
+        
+        $("body").on("click", "#appDrawer", function () {
+            $("#drawer-button").hide();
+            $("#appDrawer").hide();
+        })
+    </script>
 
 </body>
 </html>
