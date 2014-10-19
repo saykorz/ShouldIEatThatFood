@@ -62,3 +62,69 @@
 [1018/171534:ERROR:renderer_main.cc(226)] Running without renderer sandbox
 [1018/171610:ERROR:renderer_main.cc(226)] Running without renderer sandbox
 [1018/171616:ERROR:renderer_main.cc(226)] Running without renderer sandbox
+[1019/040718:ERROR:renderer_main.cc(226)] Running without renderer sandbox
+[1019/040906:ERROR:renderer_main.cc(226)] Running without renderer sandbox
+[1019/134523:ERROR:renderer_main.cc(226)] Running without renderer sandbox
+[1019/134615:ERROR:renderer_main.cc(226)] Running without renderer sandbox
+[1019/134616:ERROR:ipc_channel_win.cc(405)] pipe error: 232
+[1019/134621:ERROR:renderer_main.cc(226)] Running without renderer sandbox
+[1019/134728:ERROR:renderer_main.cc(226)] Running without renderer sandbox
+[1019/135010:ERROR:renderer_main.cc(226)] Running without renderer sandbox
+[1019/140101:ERROR:renderer_main.cc(226)] Running without renderer sandbox
+[1019/140756:ERROR:renderer_main.cc(226)] Running without renderer sandbox
+[1019/141010:ERROR:renderer_main.cc(226)] Running without renderer sandbox
+[1019/141019:ERROR:renderer_main.cc(226)] Running without renderer sandbox
+[1019/141019:ERROR:renderer_main.cc(226)] Running without renderer sandbox
+[1019/141035:ERROR:renderer_main.cc(226)] Running without renderer sandbox
+[1019/141315:ERROR:renderer_main.cc(226)] Running without renderer sandbox
+[1019/141315:ERROR:renderer_main.cc(226)] Running without renderer sandbox
+[1019/141324:ERROR:renderer_main.cc(226)] Running without renderer sandbox
+[1019/141336:ERROR:renderer_main.cc(226)] Running without renderer sandbox
+[1019/141458:ERROR:ipc_channel_win.cc(132)] pipe error: 109
+[1019/141458:ERROR:renderer_main.cc(226)] Running without renderer sandbox
+[1019/141458:ERROR:renderer_main.cc(226)] Running without renderer sandbox
+[1019/141752:ERROR:ipc_channel_win.cc(132)] pipe error: 109
+[1019/141752:ERROR:renderer_main.cc(226)] Running without renderer sandbox
+[1019/141752:ERROR:renderer_main.cc(226)] Running without renderer sandbox
+[1019/141857:ERROR:renderer_main.cc(226)] Running without renderer sandbox
+[1019/141857:ERROR:renderer_main.cc(226)] Running without renderer sandbox
+[1019/141913:ERROR:renderer_main.cc(226)] Running without renderer sandbox
+[1019/141913:ERROR:renderer_main.cc(226)] Running without renderer sandbox
+[1019/142316:ERROR:renderer_main.cc(226)] Running without renderer sandbox
+[1019/142316:ERROR:renderer_main.cc(226)] Running without renderer sandbox
+[1019/142948:ERROR:renderer_main.cc(226)] Running without renderer sandbox
+[1019/142948:ERROR:renderer_main.cc(226)] Running without renderer sandbox
+[1019/143254:ERROR:renderer_main.cc(226)] Running without renderer sandbox
+[1019/143356:ERROR:renderer_main.cc(226)] Running without renderer sandbox
+[1019/143356:ERROR:renderer_main.cc(226)] Running without renderer sandbox
+[1019/143945:ERROR:CONSOLE(2961)] "Resource content request failed: null", source: chrome-devtools://devtools/inspector.js (2961)
+[1019/144006:ERROR:renderer_main.cc(226)] Running without renderer sandbox
+[1019/144006:ERROR:renderer_main.cc(226)] Running without renderer sandbox
+[1019/144249:ERROR:renderer_main.cc(226)] Running without renderer sandbox
+[1019/144249:ERROR:renderer_main.cc(226)] Running without renderer sandbox
+[1019/144912:ERROR:ipc_channel_win.cc(132)] pipe error: 109
+[1019/144912:ERROR:renderer_main.cc(226)] Running without renderer sandbox
+[1019/144912:ERROR:renderer_main.cc(226)] Running without renderer sandbox
+[1019/145837:ERROR:renderer_main.cc(226)] Running without renderer sandbox
+[1019/145837:ERROR:renderer_main.cc(226)] Running without renderer sandbox
+[1019/150128:ERROR:renderer_main.cc(226)] Running without renderer sandbox
+[1019/150128:ERROR:renderer_main.cc(226)] Running without renderer sandbox
+[1019/150143:ERROR:ipc_channel_win.cc(132)] pipe error: 109
+[1019/150143:ERROR:ipc_channel_win.cc(132)] pipe error: 109
+[1019/150143:ERROR:renderer_main.cc(226)] Running without renderer sandbox
+[1019/150143:ERROR:renderer_main.cc(226)] Running without renderer sandbox
+[1019/150200:ERROR:renderer_main.cc(226)] Running without renderer sandbox
+[1019/150200:ERROR:renderer_main.cc(226)] Running without renderer sandbox
+[1019/150351:ERROR:renderer_main.cc(226)] Running without renderer sandbox
+[1019/150351:ERROR:renderer_main.cc(226)] Running without renderer sandbox
+[1019/150732:ERROR:renderer_main.cc(226)] Running without renderer sandbox
+[1019/150732:ERROR:renderer_main.cc(226)] Running without renderer sandbox
+[1019/150750:ERROR:ipc_channel_win.cc(132)] pipe error: 109
+[1019/150750:ERROR:renderer_main.cc(226)] Running without renderer sandbox
+[1019/150750:ERROR:renderer_main.cc(226)] Running without renderer sandbox
+[1019/150812:ERROR:renderer_main.cc(226)] Running without renderer sandbox
+[1019/150812:ERROR:renderer_main.cc(226)] Running without renderer sandbox
+[1019/151313:ERROR:renderer_main.cc(226)] Running without renderer sandbox
+[1019/151313:ERROR:renderer_main.cc(226)] Running without renderer sandbox
+[1019/151347:ERROR:renderer_main.cc(226)] Running without renderer sandbox
+[1019/151347:ERROR:renderer_main.cc(226)] Running without renderer sandbox

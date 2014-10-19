@@ -2,14 +2,16 @@
 
 (function (global) {
     var persiter = window.persisters.get();
-    var savedData = localStorage.getObject(window.pendingTags);
-    for (var i = 0; i < savedData.length; i++) {
-        savedData[i].image = "data:image/png;base64, " + savedData[i].image;
-        if (savedData[i].status === window.submitStatus.succses) {
-            savedData[i].status = "re-check";
-        }
-        else {
-            savedData[i].status = "re-check";
+    var savedData = localStorage.getObject(window.pendingTags) || [];
+    if (savedData) {
+        for (var i = 0; i < savedData.length; i++) {
+            savedData[i].image = "data:image/png;base64, " + savedData[i].image;
+            if (savedData[i].status === window.submitStatus.succses) {
+                savedData[i].status = "re-check";
+            }
+            else {
+                savedData[i].status = "re-check";
+            }
         }
     }
    

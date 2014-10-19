@@ -4,6 +4,7 @@ window.persisters = (function () {
         init: function () {
             this.apiUrl = "http://api.dev.shouldieatthatfood.com/";
             this.users = new UserPersister(this.apiUrl);
+            this.results = new ResultsPersister(this.apiUrl);
         }
     });
 
@@ -27,6 +28,20 @@ window.persisters = (function () {
                 Email: email
             };
             return httpRequester.postJSON(this.url + "api/account/register", model);
+        }
+    })
+
+    var ResultsPersister = Class.create({
+        url: null,
+        init: function (url) {
+            this.url = url
+        },
+        getResults: function(groupId) {
+            var url = this.url + 'api/Library';
+            if (groupId !== undefined) {
+                url += '/' + groupId
+            }
+            return httpRequester.getJSON(url);
         }
     })
 
