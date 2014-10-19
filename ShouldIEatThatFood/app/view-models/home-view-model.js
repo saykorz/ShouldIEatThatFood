@@ -10,8 +10,6 @@
     function takePhoto() {
         var that = this;
 
-        global.app.application.showLoading();
-
         window.cameraApp.run();
         window.cameraApp.capturePhoto().then(function (fileObj) {
 
@@ -21,36 +19,35 @@
                 { Authorization: "Bearer " + accessToken })
                 .then(function (data) {
                     // sucsess 
-                    kendo.mobile.application.hideLoading();
-                    showResults();
+                    var allowed = data[0].Allowed;
+                    var warning = data[0].Warning
+                    var dangerous = data[0].Dangerous
+                    showResults(allowed, warning, dangerous);
                     that.set("isImageVisible", true);
                     that.set("imageSrc", "data:image/png;base64, " + fileObj);
                     saveUploadImage(fileObj, window.submitStatus.succses);
 
                 }, function (error) {
-                    kendo.mobile.application.hideLoading();
+
                     alert("Uplouding is not successful, image will be saved in history for later.");
                     saveUploadImage(fileObj, window.submitStatus.error);
                    
                });
-
+        }, function (error) {
         });
 
     }
     
         function saveUploadImage(imageString, status) {
             var savedImages = localStorage.getObject(window.pendingTags);
-            if (!savedImages) {
-                savedImages = [];
-            }
-            savedImages.unshift({ image: imageString, status: status });
+            savedImages.unshift(fileObj);
             if (savedImages.lenght > window.pendingTagsMaxCount) {
                 savedImages.pop();
             }
-            localStorage.setObject(window.pendingTags, savedImages);
+            localStorage.setObject(window.pendingTags, { image: fileObj , status: status});
         }
 
-        function showResults() {
+        function showResults(allowed, warning, dangerous) {
 
             $("#appendto").html("");
 
@@ -71,13 +68,13 @@
             }).data("kendoNotification");
 
             notification.show({
-                count: 2,
+                count: dangerous,
             }, "error");
             notification.show({
-                count: 4,
+                count: warning,
             }, "warning");
             notification.show({
-                count: 12,
+                count: allowed,
             }, "success");
 
         }

@@ -1,4 +1,5 @@
 <div data-role="view" data-title="Results" data-layout="main" data-model="app.resultsModel">
+    <button class="k-button" data-bind="click: getBack, visible: isBackVisible">Back</button>
     <ul id="group-list-view"></ul>
     <script>
         $(document).ready(function () {
