@@ -19,7 +19,10 @@
                 { Authorization: "Bearer " + accessToken })
                 .then(function (data) {
                     // sucsess 
-                    showResults(data.allowed, data.warning, data.dangerous);
+                    var allowed = data[0].Allowed;
+                    var warning = data[0].Warning
+                    var dangerous = data[0].Dangerous
+                    showResults(allowed, warning, dangerous);
                     that.set("isImageVisible", true);
                     that.set("imageSrc", "data:image/png;base64, " + fileObj);
                     saveUploadImage(fileObj, window.submitStatus.succses);
