@@ -7,7 +7,7 @@
 
 
         for (var i = 0; i < savedData.length; i++) {
-            savedData[i].image = "data:image/png;base64, " + savedData[i].image;
+            savedData[i].image = "data:image/jpg;base64, " + savedData[i].image;
             if (savedData[i].status === window.submitStatus.succses) {
                 savedData[i].status = "re-check";
             }
@@ -33,12 +33,12 @@
                 { Authorization: "Bearer " + accessToken })
                 .then(function (data) {
                     // sucsess 
-                    alert("result", data);
+                    alert("succsessful", data);
                     // saveUploadImage(fileObj, window.submitStatus.succses);
 
                 }, function (error) {
 
-                    alert("Uplouding is not successful, image will be saved in history for later.");
+                    alert("Uplouding is not successful.");
                     // saveUploadImage(fileObj, window.submitStatus.error);
 
                 });
@@ -48,15 +48,13 @@
         refresh: function () {
             var savedData = localStorage.getObject(window.pendingTags);
             if (savedData) {
-
-
                 for (var i = 0; i < savedData.length; i++) {
-                    savedData[i].image = "data:image/png;base64, " + savedData[i].image;
+                    savedData[i].image = "data:image/jpg;base64, " + savedData[i].image;
                     if (savedData[i].status === window.submitStatus.succses) {
                         savedData[i].status = "re-check";
                     }
                     else {
-                        savedData[i].status = "re-check";
+                        savedData[i].status = "check";
                     }
                 }
             }
@@ -64,7 +62,7 @@
                 savedData = [];
             }
             this.set("submits", savedData);
-            location.reload();
+            
         }
 
     });
