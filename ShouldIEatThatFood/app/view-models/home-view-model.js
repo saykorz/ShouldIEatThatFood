@@ -22,7 +22,7 @@
                 .then(function (data) {
                     // sucsess 
                     kendo.mobile.application.hideLoading();
-                    showResults();
+                    showResults(data.allowed, data.warning, data.dangerous);
                     that.set("isImageVisible", true);
                     that.set("imageSrc", "data:image/png;base64, " + fileObj);
                     saveUploadImage(fileObj, window.submitStatus.succses);
@@ -47,7 +47,7 @@
             localStorage.setObject(window.pendingTags, { image: fileObj , status: status});
         }
 
-        function showResults() {
+        function showResults(allowed, warning, dangerous) {
 
             $("#appendto").html("");
 
@@ -68,13 +68,13 @@
             }).data("kendoNotification");
 
             notification.show({
-                count: 2,
+                count: dangerous,
             }, "error");
             notification.show({
-                count: 4,
+                count: warning,
             }, "warning");
             notification.show({
-                count: 12,
+                count: allowed,
             }, "success");
 
         }

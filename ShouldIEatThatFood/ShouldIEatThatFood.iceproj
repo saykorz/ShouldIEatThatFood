@@ -104,7 +104,6 @@
     <Content Include="kendo\styles\images\kendoui.woff" />
     <Content Include="kendo\styles\images\wp8_icons.png" />
     <Content Include="kendo\styles\images\wp8_inverseicons.png" />
-    <Content Include="kendo\styles\kendo.silver.mobile.min.css" />
     <Content Include="kendo\styles\Silver\editor.png" />
     <Content Include="kendo\styles\Silver\imagebrowser.png" />
     <Content Include="kendo\styles\Silver\indeterminate.gif" />

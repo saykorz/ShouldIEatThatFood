@@ -31,8 +31,11 @@
                         <span class="k-invalid-msg" data-for="e-mail"></span>
                         <br />
                         <br />
+                        <div id="reg-info-container"></div>
+                        <br />
                         <button data-role="button" data-bind="click: register">Register</button>
-                        <div>You will receive your password on the email</div>
+                        
+                        <span id="reg-info" style="display:none;"></span>
                     </div>
                 </div>
             </li>
@@ -44,6 +47,21 @@
             $("#panelbar").kendoPanelBar({
                 expandMode: "single"
             });
+
+            var notification =  $("#reg-info").kendoNotification({
+                autoHideAfter: 0,
+                hideOnClick: false,
+                position: {
+                    // notification popup will scroll together with the other content
+                    pinned: true,
+                    // the first notification popup will appear 30px from the viewport's top and right edge
+                    top: 30,
+                    right: 30
+                },
+                appendTo: "#reg-info-container",
+            }).data("kendoNotification");
+
+            notification.show("You will recevie your password on the mail.", "info");
         });
     </script>
 </div>
