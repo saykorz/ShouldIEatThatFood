@@ -1,5 +1,5 @@
 <div data-role="view" data-title="History" data-layout="main" data-model="app.historyModel">
-  
+    <button data-bind="click: refresh" class="k-button" >Refresh</button>
     <ul data-template="ul-template" style="list-style:none;margin:0px; padding:0px" data-bind="source: submits"></ul>
     <script id="ul-template"  type="text/x-kendo-template">
         <li style="margin:0px; padding:0px">
@@ -9,4 +9,6 @@
             <button class="k-button history-btn" data-bind="text: status, click: checkImage"></button>
         </li>
     </script>
+
+
 </div>
