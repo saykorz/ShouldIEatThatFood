@@ -84,10 +84,14 @@
     </script>-->
 
     <script>
-        
-        $("body").on("click", "#appDrawer", function () {
-            $("#drawer-button").hide();
-            $("#appDrawer").hide();
+        $(function () {
+            $(document).ajaxComplete(function () {
+                kendo.mobile.application.hideLoading();
+            });
+
+            $(document).ajaxStart(function () {
+                kendo.mobile.application.showLoading();
+            });
         })
     </script>
 
