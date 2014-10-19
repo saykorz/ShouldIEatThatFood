@@ -40,11 +40,14 @@
     
         function saveUploadImage(imageString, status) {
             var savedImages = localStorage.getObject(window.pendingTags);
-            savedImages.unshift(fileObj);
+            if (!savedImages) {
+                savedImages = [];
+            }
+            savedImages.unshift({ image: imageString, status: status });
             if (savedImages.lenght > window.pendingTagsMaxCount) {
                 savedImages.pop();
             }
-            localStorage.setObject(window.pendingTags, { image: fileObj , status: status});
+            localStorage.setObject(window.pendingTags, savedImages);
         }
 
         function showResults(allowed, warning, dangerous) {
